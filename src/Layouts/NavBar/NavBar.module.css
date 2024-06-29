@@ -1,0 +1,145 @@
+:root {
+  --MainColor: hsl(275.52deg 100% 56.27%);
+  --SecondColor: hsl(298.64deg 100% 65.29%);
+  --grey: #cfcfcf;
+  --dark_grey: #767676;
+
+  --screen_sm: 576px;
+  --screen_md: 768px;
+  --screen_lg: 992px;
+  --screen_xl: 1200px;
+  --screen_xxl: 1400px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+/*-------------------*/
+/*  Generals */
+/*-------------------*/
+ul {
+  list-style: none;
+  margin: 0 !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*.is_empty_0pxove {*/
+/* 0pxove it`s element if has empty value */
+/*}
+
+/*-------------------*/
+/*  Navbar Section */
+/*-------------------*/
+
+.navbar {
+  margin: 0;
+  padding-top: 20px;
+  background-color: #000000bf;
+  backdrop-filter: blur(2px);
+  box-shadow: 1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top:0;
+  width: 100%;
+}
+
+.navbar > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/*.nav_container, .nav_links, .action_controls, .product_box, .cart_item_contol */
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_links li a {
+  margin: 0 10px 10px;
+  font-size: 16px;
+  font-weight: lighter;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav_container,
+.action_controls,
+.nav-icon {
+  color: #fff;
+}
+
+.nav_container .logo {
+  color: var(--MainColor);
+  margin-right: 15px;
+  font-size: 27px;
+  transform: translate(0, -4px);
+}
+
+.nav_icon {
+  margin: 0 12px 0 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav_icon:hover {
+  color: var(--MainColor);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.action_controls .control_search_icon.nav_icon:hover .search_component {
+  display: block;
+}
+
+.action_controls .control_Account.nav_icon:hover .Account_menue {
+  display: block;
+}
+
+.menu_links_container{
+  background: var(--MainColor);
+}
+
+.menu_links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 16px;
+}
+.menu_links li {
+  border-bottom: 1px solid var(--dark_grey);
+  width: 100% !important;
+  display: block;
+  padding: 0 0 12px 0;
+}
+.menu_links li a {
+  color: #fff;
+}
+.nav_links {
+  padding: 0 !important;
+}
+@media (max-width: 768px) {
+  .nav_links {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  .Bars_icon {
+    display: none !important;
+  }
+}

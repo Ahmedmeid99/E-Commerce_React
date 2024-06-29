@@ -1,0 +1,14 @@
+.accordion {
+  width: 250px;
+  margin-top: 38px;
+}
+
+.accordion button {
+  padding: 10px;
+}
+@media (max-width: 768px) {
+  .accordion {
+    width: 98%;
+    margin: 0 !important;
+  }
+}

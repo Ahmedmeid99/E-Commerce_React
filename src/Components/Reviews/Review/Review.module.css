@@ -1,0 +1,33 @@
+.review {
+  border: none;
+  box-shadow: 0px 0px 2px 0px rgb(163 163 163 / 50%);
+}
+.customer_review {
+  border: 1px solid var(--MainColor);
+}
+.cardBody .row {
+  width: 100%;
+}
+
+.date {
+  font-style: italic;
+  font-size: 14px;
+  color: #b7b7b7;
+}
+
+.gold_color {
+  color: gold;
+}
+.grey_colo {
+  color: #eee;
+}
+
+.customFileLabel::after {
+  content: "Browse";
+}
+
+.imageUpload {
+  text-align: center;
+}
+/* --------------- */
+/* Revies */

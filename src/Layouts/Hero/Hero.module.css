@@ -1,0 +1,34 @@
+.img_container{
+    width: 100%;
+    height: 645px;
+    background: linear-gradient(181deg, rgb(151 0 255 / 71%), rgb(230 0 255 / 61%)), url(/src/assets/Images/ecommerce.jpg);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.img_container >h1{
+        color: #fff;
+    font-weight: 700;
+    text-shadow: 0px 0px 3px #00000094;
+    font-size: 50px;
+}
+.img_container > p{
+    font-size: 18px;
+    color: #fbff5a;
+    text-shadow: 0px 0px 3px #00000094;
+}
+
+@media screen and (max-width:657px)
+{
+    .img_container{
+        background-position: left;
+        height: 768px;
+    }
+}

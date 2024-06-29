@@ -1,0 +1,35 @@
+.nav_icon {
+  margin: 0 12px 0 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav_icon:hover {
+  color: var(--MainColor);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.control_item {
+  position: relative;
+}
+
+.cart_item_count {
+  position: absolute;
+  top: -45%;
+  right: 15%;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #ff2020;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*.is_empty_0pxove {*/
+/* 0pxove it`s element if has empty value */
+/*}*/

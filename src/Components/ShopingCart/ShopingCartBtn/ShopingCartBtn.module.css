@@ -1,0 +1,13 @@
+.btn_add_to_cart {
+  font-size: 14px;
+  color: #9d9d9d;
+  cursor: pointer;
+}
+.btn_add_to_cart:hover {
+  color: var(--MainColor);
+  transition: 0.5s;
+}
+
+.active {
+  color: var(--MainColor);
+}

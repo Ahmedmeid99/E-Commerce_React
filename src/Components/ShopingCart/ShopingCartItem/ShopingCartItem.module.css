@@ -1,0 +1,105 @@
+/* last item must has not border-button */
+.prduct_item {
+  border-bottom: 1px rgb(241 241 241) solid;
+}
+
+.product_box {
+  padding: 10px 0;
+  flex: 10;
+}
+
+.img_box {
+  height: 60px;
+  overflow: hidden;
+  max-width: 120px;
+  min-width: 50px;
+  margin-right: 10px;
+  flex: 0.8;
+}
+
+.img_box > img {
+  max-height: 100%;
+}
+.content {
+  flex: 2.4;
+}
+.product_box h6 {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.product_box p {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+}
+
+.cart_item_contol {
+  flex: 0.8;
+  margin: 0 10px;
+}
+
+.cart_item_contol .control_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px #444 solid;
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+}
+
+.cart_item_contol .control_btn:hover {
+  border: 2px var(--MainColor) solid;
+  transition: 0.5s;
+}
+
+.cart_item_contol .control_btn > svg {
+  font-weight: 700;
+}
+
+.cart_item_contol .count {
+  font-size: 16px;
+  font-weight: 600;
+}
+.total_price {
+  color: #c1c1c1;
+  font-size: 11px;
+}
+.price {
+  flex: 0.7;
+  font-size: 11px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.close_btn {
+  flex: 0.5;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #999;
+  cursor: pointer;
+}
+
+.close_btn svg {
+  font-size: 13px;
+  color: var(--grey);
+}
+
+.close_btn:hover svg {
+  color: var(--dark_grey);
+  transition: 0.5s;
+}
+/* ---------------------- */
+@media screen and (max-width: 768px) {
+}

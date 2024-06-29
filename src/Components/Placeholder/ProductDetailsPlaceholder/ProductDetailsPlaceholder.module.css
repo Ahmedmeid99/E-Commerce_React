@@ -1,0 +1,71 @@
+/* ----------------- */
+.product_component {
+  padding-top: 40px;
+}
+
+.product_image {
+  width: 200%;
+  height: 400px;
+  border-radius: 5px;
+  padding: 30px;
+  background: #ddd;
+  flex: 1;
+}
+@media screen and (max-width: 768px) {
+  .product_container {
+    flex-direction: column;
+  }
+
+  .product_image {
+    width: 100% !important;
+    height: 300px !important;
+  }
+
+  .product_action {
+    position: static !important;
+    max-width: 20px 10px !important;
+  }
+
+  .btn_add_to_cart,
+  .price {
+    font-size: 20px !important;
+  }
+}
+
+.product_details {
+  position: relative;
+  flex: 1;
+}
+.product_details p {
+  line-height: 1.6;
+}
+
+/* ------------ */
+.product_action {
+  position: absolute;
+  width: 50%;
+  bottom: 50px;
+  left: 10px;
+  margin: 20px 10px;
+}
+.price,
+.price svg,
+.price span,
+.btn_add_to_cart {
+  flex: 1;
+}
+.price span {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn_add_to_cart {
+  font-size: 14px;
+  color: #9d9d9d;
+  cursor: pointer;
+}
+
+.btn_add_to_cart:hover {
+  color: var(--MainColor);
+  transition: 0.5s;
+}

@@ -1,0 +1,17 @@
+.fullWidthTextarea {
+  width: 100%;
+  height: 100px; 
+  resize: none;
+}
+
+
+.gold_color,
+.grey_colo{
+    cursor:pointer;
+}
+.gold_color{
+    color:gold;
+}
+.grey_colo{
+    color:#eee;
+}

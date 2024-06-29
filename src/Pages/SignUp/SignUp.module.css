@@ -1,0 +1,40 @@
+@media (max-width: 768px) {
+  .form_card{
+    border:none;
+  }
+  
+}
+.logo_box{
+  background: var(--MainColor);
+    color: #eee;
+    width: fit-content;
+    margin: auto;
+    width: 70px;
+    height: 70px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.logo_icon{
+  font-size: 30px;
+  color: #eee;
+}
+
+.submit_btn{
+  background: var(--MainColor);
+  border: none;
+  padding: 10px 30px;
+  transition: .5s;
+  outline:none;
+}
+
+.submit_btn:hover{
+  /* background: hsl(275.52deg 83.4% 36.14%); */
+  background:var(--MainColor);
+  outline: 5px solid hsl(276deg 100% 50% / 54%);
+}
+.submit_btn:active{
+  outline: 5px solid hsl(276deg 100% 50% / 54%);
+}

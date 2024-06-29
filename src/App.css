@@ -1,0 +1,122 @@
+@import "@fontsource/roboto";
+
+:root {
+  --MainColor: hsl(275.52deg 100% 56.27%);
+  --SecondColor: hsl(298.64deg 100% 65.29%);
+  --grey: #cfcfcf;
+  --dark_grey: #767676;
+
+  --screen_sm: 576px;
+  --screen_md: 768px;
+  --screen_lg: 992px;
+  --screen_xl: 1200px;
+  --screen_xxl: 1400px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif !important;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+/*-------------------*/
+/*  Generals */
+/*-------------------*/
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.loading_component {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--MainColor);
+}
+/*.is_empty_remove {*/
+/* remove it`s element if has empty value */
+/*}*/
+
+.container_app {
+  width: 80%;
+  margin: 0 auto;
+}
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .container_app {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.offcanvas {
+  background: hsl(275.52deg 100% 56.27% / 71%);
+  backdrop-filter: blur(6px);
+}
+
+/* active for Navlink */
+.list-group-item {
+  padding: 0 !important;
+}
+.list-group-item:first-child a,
+.list-group-item a {
+  padding: 8px 16px !important;
+  display: block !important;
+}
+.list-group-item a.active {
+  background: #eee !important;
+}
+.list-group-item a:hover {
+  background: #eee !important;
+  transition: 0.5s !important;
+} 
+/* a.active svg{
+  color: var(--MainColor);
+} */
+.empty_content h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #d7d7d7;
+  text-align: center;
+  padding: 20px 0 5px 0;
+}
+.empty_content svg {
+  margin: auto;
+  display: block;
+  font-size: 30px;
+  color: #d7d7d7;
+}
+.empty_content p {
+  text-align: center;
+  margin: 10px;
+  color: #b7b7b7;
+}
+
+/* ---------------------- */
+.not_completed{
+  color: #ddd;
+    text-align: center;
+    padding: 60px;
+}

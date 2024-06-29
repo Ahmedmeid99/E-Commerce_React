@@ -1,0 +1,53 @@
+.breadcrumd {
+  background: #eee;
+  padding: 15px 0 1px 0;
+  font-size: 14px;
+  padding-left: 15px;
+}
+
+.row {
+  width: 500px;
+  transform: translateY(12px);
+}
+.products_container {
+  display: flex;
+  padding: 0 15px;
+  margin-bottom: 50px;
+  gap: 12px;
+}
+.products_content {
+  margin-top: 28px;
+}
+
+.acc_larg_screen {
+  display: block;
+}
+.acc_small_screen {
+  display: none;
+}
+@media (max-width: 768px) {
+  .acc_larg_screen {
+    display: none;
+  }
+  .acc_small_screen {
+    display: block;
+    width: 98%;
+  }
+  .row {
+    width: 98%;
+  }
+}
+.paginate_component {
+  padding: 25px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.search_btn {
+  background: var(--MainColor);
+  color: #fff;
+}
+.search_btn:hover {
+  background: hsl(275.52deg 74.44% 44.69%);
+  color: #fff;
+}
