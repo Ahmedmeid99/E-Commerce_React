@@ -3,7 +3,7 @@ import axios from "axios"
 
 export const AddShopingCart = async (shopingCart) => {
     try {
-        const response = await axios.post(`${URL}/api/ShopingCart`, shopingCart);
+        const response = await axios.post(`${URL}/Api/ShopingCart`, shopingCart);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -13,7 +13,7 @@ export const AddShopingCart = async (shopingCart) => {
 
 export const GetShopingCart = async (customerId) => {
     try {
-        const response = await axios.get(`${URL}/api/ShopingCart/customer/${customerId}`);
+        const response = await axios.get(`${URL}/Api/ShopingCart/customer/${customerId}`);
         return response.data;
     } catch (error) {
         console.log(error);

@@ -7,7 +7,7 @@ const api = axios.create({
 
 export const GetCategories = async () => {
     try {
-        const response = await api.get(`/api/ProductCategory`);
+        const response = await api.get(`/Api/ProductCategory`);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -16,7 +16,7 @@ export const GetCategories = async () => {
 }
 export const GetCategory = async (categoryId) => {
     try {
-        const response = await api.get(`/api/ProductCategory/${categoryId}`);
+        const response = await api.get(`/Api/ProductCategory/${categoryId}`);
         return response.data;
     } catch (error) {
         console.log(error);

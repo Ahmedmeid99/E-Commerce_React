@@ -3,7 +3,7 @@ import axios from "axios"
 
 export const GetProductCount = async (categoryId) => {
   try {
-    const response = await axios.get(`${URL}/api/Product/category/${categoryId}/count`);
+    const response = await axios.get(`${URL}/Api/Product/category/${categoryId}/count`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -13,7 +13,7 @@ export const GetProductCount = async (categoryId) => {
 
 export const GetAllCategoryProducts = async (categoryId) => {
   try {
-    const response = await axios.get(`${URL}/api/Product/category/${categoryId}`);
+    const response = await axios.get(`${URL}/Api/Product/category/${categoryId}`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -23,7 +23,7 @@ export const GetAllCategoryProducts = async (categoryId) => {
 
 export const GetTopCategoryProducts = async (categoryId, count) => {
   try {
-    const response = await axios.get(`${URL}/api/Product/category/${categoryId}/top?count=${count}`);
+    const response = await axios.get(`${URL}/Api/Product/category/${categoryId}/top?count=${count}`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -33,7 +33,7 @@ export const GetTopCategoryProducts = async (categoryId, count) => {
 
 export const GetRelatedCategoryProducts = async (categoryId,ExcludedProduct, count) => {
   try {
-    const response = await axios.get(`${URL}/api/Product/category/${categoryId}/related?excludedProduct=${ExcludedProduct}&count=${count}`);
+    const response = await axios.get(`${URL}/Api/Product/category/${categoryId}/related?excludedProduct=${ExcludedProduct}&count=${count}`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -43,7 +43,7 @@ export const GetRelatedCategoryProducts = async (categoryId,ExcludedProduct, cou
 
 export const GetProduct = async (ProductId) => {
   try {
-    const response = await axios.get(`${URL}/api/Product/${ProductId}`);
+    const response = await axios.get(`${URL}/Api/Product/${ProductId}`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -53,7 +53,7 @@ export const GetProduct = async (ProductId) => {
 
 export const GetpaginatedCategoryProducts = async (categoryId, pageNumber, pageSize) => {
   try {
-    const response = await axios.get(`${URL}/api/Product/category/${categoryId}/page?pageNumber=${pageNumber}&pageSize=${pageSize}`);
+    const response = await axios.get(`${URL}/Api/Product/category/${categoryId}/page?pageNumber=${pageNumber}&pageSize=${pageSize}`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -63,7 +63,7 @@ export const GetpaginatedCategoryProducts = async (categoryId, pageNumber, pageS
 
 export const GetInRangeCategoryProducts = async (categoryId, min, max) => {
   try {
-    const response = await axios.get(`${URL}/api/Product/category/${categoryId}/inrange?min=${min}&max=${max}`);
+    const response = await axios.get(`${URL}/Api/Product/category/${categoryId}/inrange?min=${min}&max=${max}`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -73,7 +73,7 @@ export const GetInRangeCategoryProducts = async (categoryId, min, max) => {
 
 export const SearchCategoryProducts = async (categoryId, term) => {
   try {
-    const response = await axios.get(`${URL}/api/Product/category/${categoryId}/search?term=${term}`);
+    const response = await axios.get(`${URL}/Api/Product/category/${categoryId}/search?term=${term}`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -83,7 +83,7 @@ export const SearchCategoryProducts = async (categoryId, term) => {
 
 export const SearchGlobalProducts = async (term) => {
   try {
-    const response = await axios.get(`${URL}/api/Product/searchglobal?term=${term}`);
+    const response = await axios.get(`${URL}/Api/Product/searchglobal?term=${term}`);
     return response.data;
   } catch (error) {
     console.log(error);
