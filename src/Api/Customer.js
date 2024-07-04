@@ -9,18 +9,18 @@ const api = axios.create({
   withCredentials: true, // هذا الخيار يضيف بيانات الاعتماد في الطلبات
 });
 export const SignUpCustomer = async (data) => {
-  const response = await api.post(`/Api/Customer`, data);
+  const response = await api.post(`/Api/customer`, data);
   return response.data;
 
 }
 export const LoginCustomer = async (data) => {
-  const response = await api.post(`/Api/Customer/login`, data);
+  const response = await api.post(`/Api/customer/login`, data);
   return response.data;
 
 }
 
 export const UpdateCustomerInfo = async (id, data) => {
-  const response = await api.post(`/Api/Customer/${id}`, data);
+  const response = await api.post(`/Api/customer/${id}`, data);
   return response.data;
 }
 

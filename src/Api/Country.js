@@ -4,7 +4,7 @@ import axios from "axios"
 
 export const GetCountries = async () => {
     try {
-        const response = await axios.get(`${URL}/Api/Country`);
+        const response = await axios.get(`${URL}/Api/country`);
         return response.data;
     } catch (error) {
         console.log(error);
