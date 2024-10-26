@@ -325,10 +325,10 @@ const SignUp = () => {
                             countries?.length > 0 &&
                             countries?.map((country) => (
                               <option
-                                key={country.countryId}
-                                value={country.countryId}
+                                key={country?.CountryId}
+                                value={country?.CountryId}
                               >
-                                {country.countryName}
+                                {country?.CountryName}
                               </option>
                             ))}
                         </Form.Select>
