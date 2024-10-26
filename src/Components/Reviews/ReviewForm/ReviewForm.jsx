@@ -17,11 +17,11 @@ function ReviewForm({ productId, onAddReview, onUpdateReview, mode ,starsReview,
         return;
       }
       const Review = {
-        customerId: Customer.customerID,
-        productId: productId,
-        reviewText: reviewText,
-        rating: stars,
-        reviewDate: new Date().toISOString(),
+        CustomerId: Customer.customerID,
+        ProductId: productId,
+        ReviewText: reviewText,
+        Rating: stars,
+        ReviewDate: new Date().toISOString(),
       };
       onAddReview(Review);
       setReviewText("");
@@ -37,11 +37,11 @@ function ReviewForm({ productId, onAddReview, onUpdateReview, mode ,starsReview,
         return;
       }
       const updatedReview = {
-        customerId: Customer.customerID,
-        reviewText: reviewText,
-        rating: stars,
-        reviewDate: new Date().toISOString(),
-        productId: productId
+        CustomerId: Customer.customerID,
+        ReviewText: reviewText,
+        Rating: stars,
+        ReviewDate: new Date().toISOString(),
+        ProductId: productId
       };
       console.log("work from addReview\n", updatedReview);
       onUpdateReview(updatedReview);

@@ -54,7 +54,7 @@ function Products() {
       setProducts(defaultResult);
     } catch (error) {
       setLoading(false);
-      // throw error;
+      throw error;
     }
   };
 
@@ -70,7 +70,7 @@ function Products() {
         }
         setProductsCount(result);
       } catch (error) {
-        // throw error;
+        throw error;
       }
     };
     fetchProducts();
@@ -86,7 +86,7 @@ function Products() {
         let results = await GetCategories();
         setCategories(results);
       } catch (error) {
-        // throw error;
+        throw error;
       }
     };
     fetchCategories();
@@ -237,14 +237,14 @@ function Products() {
           <Row xs={2} md={3} lg={4} className="g-4 mt-1">
             {!isloading &&
               Array.isArray(Products) && Products?.length > 0 && 
-              Products?.map((product, index) => (
-                <Col key={index} className="">
+              Products?.map((product) => (
+                <Col key={product?.ProductId} className="">
                   <Product
-                    productId={product?.productId} 
-                    productName={product?.productName}
-                    description={product?.description}
-                    price={product?.price}
-                    imageURL={product?.imageURL}
+                    productId={product?.ProductId} 
+                    productName={product?.ProductName}
+                    description={product?.Description}
+                    price={product?.Price}
+                    imageURL={product?.ImageURL}
                   />
                 </Col>
               ))}

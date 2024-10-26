@@ -34,7 +34,7 @@ function CategoryGroups() {
     <>
     {Array.isArray(categories) && categories?.length > 0 && 
     categories?.map((category)=>(
-      <CategoryGroup key={category.categoryId} category={category}/>
+      <CategoryGroup key={category?.CategoryId} category={category}/>
     
     ))}
     </>

@@ -40,7 +40,7 @@ function ProductDetails() {
       try {
         let foundedProduct = await GetProduct(params.ProductId);
         let backgroundImgStyle = {
-          backgroundImage: `url(${foundedProduct?.imageURL})`,
+          backgroundImage: `url(${foundedProduct?.ImageURL})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
@@ -65,8 +65,8 @@ function ProductDetails() {
     const fetchRelatedProducts = async () => {
       try {
         let result = await GetRelatedCategoryProducts(
-          product?.categoryId,
-          product?.productId,
+          product?.CategoryId,
+          product?.ProductId,
           4
         );
         console.log(result);
@@ -98,12 +98,12 @@ function ProductDetails() {
               <Link to="/Home">Home</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
-              <Link to={`/Products/${product?.categoryId}`}>
-                {product?.categoryName || "..."}
+              <Link to={`/Products/${product?.CategoryId}`}>
+                {product?.CategoryName || "..."}
               </Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item active href="/ProductName">
-              {product?.productName || "..."}
+              {product?.ProductName || "..."}
             </Breadcrumb.Item>
           </Breadcrumb>
         </div>
@@ -115,23 +115,23 @@ function ProductDetails() {
             <div style={imgObj} className={`${styles.product_image}`}></div>
             <div className={`${styles.product_details} pt-5 podition-ralative`}>
               <div className={styles.product_content}>
-                <h3 className="mb-3">{product?.productName}</h3>
-                <p className="fs-6">{product?.description}</p>
+                <h3 className="mb-3">{product?.ProductName}</h3>
+                <p className="fs-6">{product?.Description}</p>
               </div>
               <div className={`${styles.product_action} flex`}>
                 <div className={`${styles.price}`}>
                   <FontAwesomeIcon icon={faDollarSign} />
-                  <span>{product?.price}</span>
+                  <span>{product?.Price}</span>
                 </div>
                 <div className={styles.stock_number}>
                   <p>
-                    {product?.quantityInStock > 0 ? "In stock" : "Out stock"}
+                    {product?.QuantityInStock > 0 ? "In stock" : "Out stock"}
                   </p>
-                  <span>{product?.quantityInStock}</span>
+                  <span>{product?.QuantityInStock}</span>
                 </div>
                 <ShopingCartBtn
-                  productId={product?.productId}
-                  price={product?.price}
+                  productId={product?.ProductId}
+                  price={product?.Price}
                 />
               </div>
             </div>

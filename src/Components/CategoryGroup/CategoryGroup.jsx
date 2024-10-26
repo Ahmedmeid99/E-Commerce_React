@@ -24,7 +24,7 @@ function CategoryGroup({ category }) {
 
     const fetchData = async () => {
       try {
-        let result = await GetTopCategoryProducts(category?.categoryId, 5);
+        let result = await GetTopCategoryProducts(category?.CategoryId, 5);
         console.log(result);
         setLoading(false);
         setProducts(result);
@@ -38,7 +38,7 @@ function CategoryGroup({ category }) {
 
     let firstProduct = products?.length != 0 ? products[0] : {};
   const backgroundImgStyle = {
-    backgroundImage: `linear-gradient(45deg, rgb(151 0 255 / 71%), rgb(230 0 255 / 61%)),url(${firstProduct?.imageURL})`,
+    backgroundImage: `linear-gradient(45deg, rgb(151 0 255 / 71%), rgb(230 0 255 / 61%)),url(${firstProduct?.ImageURL})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -59,20 +59,20 @@ function CategoryGroup({ category }) {
       {/* random product-img in the category */}
       <div style={styleObj} className={styles.category_img}>
         {/* CategoryName */}
-        <h3 className={styles.category_name}>{category?.categoryName}</h3>
+        <h3 className={styles.category_name}>{category?.CategoryName}</h3>
       </div>
       {/* products.map(product) <Product/> */}
       <Row xs={2} md={3} xl={4} className="g-4 mt-1">
         {!isloading &&
           Array.isArray(products) && products?.length > 0 && 
           products?.slice(1).map((product) => (
-            <Col key={product?.productId}>
+            <Col key={product?.ProductId}>
               <Product
-                productId={product?.productId}
-                productName={product?.productName}
-                description={product?.description}
-                price={product?.price}
-                imageURL={product?.imageURL}
+                productId={product?.ProductId}
+                productName={product?.ProductName}
+                description={product?.Description}
+                price={product?.Price}
+                imageURL={product?.ImageURL}
               />
             </Col>
           ))}
@@ -84,7 +84,7 @@ function CategoryGroup({ category }) {
           ))}
       </Row>
       <Link
-        to={`/Products/${category?.categoryId}`}
+        to={`/Products/${category?.CategoryId}`}
         className={styles.to_category}
       >
         <button className={styles.btn_seemore}>See more</button>

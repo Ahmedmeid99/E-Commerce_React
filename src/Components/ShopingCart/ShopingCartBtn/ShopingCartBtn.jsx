@@ -30,11 +30,11 @@ function ShopingCartBtn({ productId, price }) {
     
     //then
     const ShopingCartItem = {
-      shopingCartId: ShopingCart.shopingCartId,
-      productId: productId,
-      quantity: 1,
-      price: price,
-      totalPrice: price,
+      ShopingCartId: ShopingCart.shopingCartId,
+      ProductId: productId,
+      Quantity: 1,
+      Price: price,
+      TotalPrice: price,
     };
     
     shopingCartDispatch(AddShopingCartItemAC(ShopingCartItem));

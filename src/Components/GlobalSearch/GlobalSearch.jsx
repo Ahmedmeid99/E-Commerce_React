@@ -39,11 +39,11 @@ function GlobalSearch(props) {
             {Array.isArray(Products) && Products?.length > 0 && 
             Products?.map((product) => (
                 <ProductRow
-                key={product?.productId}
-                  id={product?.productId}
-                  title={product?.productName}
-                  description={product?.description}
-                  price={product?.price}
+                key={product?.ProductId}
+                  id={product?.ProductId}
+                  title={product?.ProductName}
+                  description={product?.Description}
+                  price={product?.Price}
                 />
             ))}
             </div>

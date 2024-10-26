@@ -25,10 +25,10 @@ function CategoriesSection() {
         {/* you can use placeholder or skilton*/}
         {Array.isArray(categories) &&
               categories?.length > 0 &&
-        categories?.map((category, index) => (
-          <Col key={category?.categoryId}>
-            <Link to={`Products/${category?.categoryId}`}>
-              {category?.categoryName}
+        categories?.map((category) => (
+          <Col key={category?.CategoryId}>
+            <Link to={`Products/${category?.CategoryId}`}>
+              {category?.CategoryName}
             </Link>
           </Col>
         ))}
