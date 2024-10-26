@@ -2,11 +2,7 @@ import { URL } from "./Variables"
 import axios from "axios"
 
 const api = axios.create({
-  baseURL: URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  withCredentials: true, // هذا الخيار يضيف بيانات الاعتماد في الطلبات
+  baseURL: URL
 });
 export const SignUpCustomer = async (data) => {
   const response = await api.post(`/Api/customer`, data);

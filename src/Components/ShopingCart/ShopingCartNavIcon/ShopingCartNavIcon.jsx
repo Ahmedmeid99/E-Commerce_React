@@ -26,7 +26,7 @@ function ShopingCartNavIcon({ onClickHandler }) {
     const fetchData = async () => {
       try {
         const result = await shopingCartDispatch(
-          GetShopingCartAC(Customer?.customerID)
+          GetShopingCartAC(Customer.customerID)
         );
         if (result.meta.requestStatus === "rejected") {
           await shopingCartDispatch(
@@ -42,7 +42,14 @@ function ShopingCartNavIcon({ onClickHandler }) {
           );
         }
       } catch (error) {
-        throw error;
+        await shopingCartDispatch(
+          AddShopingCartAC({
+            customerId: Customer.customerID,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          })
+        );
+        // throw error;
       }
     };
     fetchData();
@@ -50,9 +57,6 @@ function ShopingCartNavIcon({ onClickHandler }) {
     console.log("catch ShopingCart", ShopingCart);
     console.log(error);
   }, [shopingCartDispatch]); // add dependances if you need
-  console.log(Customer);
-  console.log("Home", ShopingCart);
-  console.log("Home : ", ShopingCartItems);
 
   return (
     <>

@@ -6,8 +6,8 @@ export const AddShopingCart = async (shopingCart) => {
         const response = await axios.post(`${URL}/Api/ShopingCart`, shopingCart);
         return response.data;
     } catch (error) {
-        console.log(error);
-        throw error;
+         
+        // throw error;
     }
 }
 
@@ -16,7 +16,7 @@ export const GetShopingCart = async (customerId) => {
         const response = await axios.get(`${URL}/Api/ShopingCart/customer/${customerId}`);
         return response.data;
     } catch (error) {
-        console.log(error);
-        throw error;
+         
+        // throw error;
     }
 }

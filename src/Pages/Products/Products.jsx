@@ -54,7 +54,7 @@ function Products() {
       setProducts(defaultResult);
     } catch (error) {
       setLoading(false);
-      throw error;
+      // throw error;
     }
   };
 
@@ -70,7 +70,7 @@ function Products() {
         }
         setProductsCount(result);
       } catch (error) {
-        throw error;
+        // throw error;
       }
     };
     fetchProducts();
@@ -86,14 +86,14 @@ function Products() {
         let results = await GetCategories();
         setCategories(results);
       } catch (error) {
-        throw error;
+        // throw error;
       }
     };
     fetchCategories();
     return () => {
       false;
     };
-  }, []);
+  }, []);//categories
 
   useEffect(() => {
     const fetchActiveCategory = async () => {

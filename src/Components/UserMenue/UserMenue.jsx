@@ -39,7 +39,7 @@ function UserMenue() {
         }
         {Customer&&<ListGroup.Item className={styles.item}>
           <FontAwesomeIcon icon={faArrowRightFromBracket} className={styles.icon} />
-          <Link to="/Login"> Logout  </Link>
+          <Link to="/Signup"> Logout  </Link>
         </ListGroup.Item>
         }
       </ListGroup>

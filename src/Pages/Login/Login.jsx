@@ -16,6 +16,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShop } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Login.module.css";
 import { Link ,useNavigate} from "react-router-dom";
+
+
 // Initial state for the form
 const initialState = {
   username: "",
@@ -55,15 +57,11 @@ const LogIn = () => {
 
   const {isLogin ,loading, error } = useSelector((state) => state.customer);
 
-  useEffect(() => {
-    if (isLogin) {
-      navigate('/Home'); //
-    }
-  }, [isLogin, navigate]);
+
   const [state, dispatch] = useReducer(reducer, initialState);
   const Customer = {
-    userName: state?.username,
-    password: state?.password
+    UserName: state?.username,
+    Password: state?.password
   }
   const customerDispatch = useDispatch();
   const errors = useSelector((state) => state.customer.errors);
@@ -86,6 +84,11 @@ const LogIn = () => {
       // tell use that form submated succefuly (use Model)
       console.log("Form submitted successfully", Customer);
       customerDispatch(loginCustomer(Customer));
+      // after Sucess Login navegate to Home Page
+      setTimeout(() => {
+        navigate('/Home'); 
+      }, 400);
+      
     }
   };
 

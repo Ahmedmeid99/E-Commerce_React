@@ -1,6 +1,6 @@
 // ShopingCartSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { AddShopingCartAC, GetShopingCartAC, AddShopingCartItemAC, IncreaseShopingCartItemAC, DecreaseShopingCartItemAC, GetAllShopingCartItemsAC, DeleteShopingCartItemAC } from './shopingCartActions';
+import { AddShopingCartAC,AddOrderAC, GetShopingCartAC, AddShopingCartItemAC, IncreaseShopingCartItemAC, DecreaseShopingCartItemAC, GetAllShopingCartItemsAC, DeleteShopingCartItemAC } from './shopingCartActions';
 
 const initialState = {
     ShopingCart: null,
@@ -13,11 +13,7 @@ const shopingCartSlice = createSlice({
     name: 'shopingCart',
     initialState,
     reducers: {
-        // Define any synchronous reducers if needed
-        ClearShopingCartItems:(state)=>{
-            state.ShopingCartItems = [];
-            state.ShopingCart = null;
-        },
+        
 
     },
     extraReducers: (builder) => {
@@ -28,9 +24,23 @@ const shopingCartSlice = createSlice({
             })
             .addCase(AddShopingCartAC.fulfilled, (state, action) => {
                 state.loading = false;
+                state.ShopingCartItems = [];
                 state.ShopingCart = action.payload;
             })
             .addCase(AddShopingCartAC.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload;
+            })
+            .addCase(AddOrderAC.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(AddOrderAC.fulfilled, (state, action) => {
+                state.loading = false;
+                state.ShopingCartItems = [];
+                state.ShopingCart = null;
+            })
+            .addCase(AddOrderAC.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
             })

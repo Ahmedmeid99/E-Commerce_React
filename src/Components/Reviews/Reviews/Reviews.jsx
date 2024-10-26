@@ -25,18 +25,15 @@ function Reviews({ productId }) {
         setReviews(results);
       } catch (error) {
         setIsLoading(false);
-        throw error;
+        // throw error;
       }
     };
     fetchReviews();
     return () => {
       false;
     };
-  }, [productId, location.pathname, reviews]);
+  }, [productId, location.pathname]);
 
-  // const handleAddReview = (newReview) => {
-  //   setReviews(...reviews, newReview);
-  // };
 
   const handleAddedReview = async (review) => {
     try {
@@ -44,7 +41,7 @@ function Reviews({ productId }) {
       console.log("from Reviews \n", newReview);
       setReviews([...reviews, newReview]);
     } catch (error) {
-      throw error;
+      // throw error;
     }
   };
   const handleUpdateReview = async (reviewId, updatedReview) => {
@@ -56,13 +53,12 @@ function Reviews({ productId }) {
       );
       if (returnReview == null) {
         // show alert to tell hem updated action has not been updated
-        console.log("has not been updated");
         return;
       }
 
       setReviews([...reviews, returnReview]);
     } catch (error) {
-      throw error;
+      // throw error;
     }
   };
 
@@ -98,9 +94,9 @@ function Reviews({ productId }) {
 
       {!isLoading &&
         Array.isArray(reviews) && reviews?.length > 0 && 
-        reviews?.map((review, index) => (
+        reviews?.map((review) => (
           <Review
-            key={index}
+            key={review?.ReviewId}
             review={review}
             handleEdit={handleUpdateReview}
             handleDelete={handleDeleteReview}

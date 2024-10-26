@@ -6,7 +6,7 @@ export const AddOrder = async (ShopingCartId) => {
         const response = await axios.post(`${URL}/Api/Order/${ShopingCartId}`);
         return response.data;
     } catch (error) {
-        console.log(error);
-        throw error;
+         
+        // throw error;
     }
 }

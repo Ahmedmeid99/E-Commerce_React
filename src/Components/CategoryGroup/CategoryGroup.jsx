@@ -16,9 +16,12 @@ import { GetCategories } from "../../Api/Category";
 
 function CategoryGroup({ category }) {
   const [products, setProducts] = useState([]);
+  const [runCount, setRunCount] = useState(0);
   const [styleObj, setStyleObj] = useState({});
   const [isloading, setLoading] = useState(true);
   useEffect(() => {
+    if (runCount<2) { // Only fetch if not done yet
+
     const fetchData = async () => {
       try {
         let result = await GetTopCategoryProducts(category?.categoryId, 5);
@@ -27,21 +30,29 @@ function CategoryGroup({ category }) {
         setProducts(result);
       } catch (error) {
         setLoading(false);
-        throw error;
+        // throw error;
       }
     };
     fetchData();
-  }, []);
-  useEffect(() => {
+    setRunCount(runCount + 1); 
+
     let firstProduct = products?.length != 0 ? products[0] : {};
-    const backgroundImgStyle = {
-      backgroundImage: `linear-gradient(45deg, rgb(151 0 255 / 71%), rgb(230 0 255 / 61%)),url(${firstProduct?.imageURL})`,
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-    };
+  const backgroundImgStyle = {
+    backgroundImage: `linear-gradient(45deg, rgb(151 0 255 / 71%), rgb(230 0 255 / 61%)),url(${firstProduct?.imageURL})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  };
+  
     setStyleObj(backgroundImgStyle);
+  ()=>{
+  }   
+   
+  }
+  
+
   }, [products]);
+
 
   return (
     <div className={"container_app mt-2 mb-5"}>
@@ -54,8 +65,8 @@ function CategoryGroup({ category }) {
       <Row xs={2} md={3} xl={4} className="g-4 mt-1">
         {!isloading &&
           Array.isArray(products) && products?.length > 0 && 
-          products?.slice(1).map((product, idx) => (
-            <Col key={idx}>
+          products?.slice(1).map((product) => (
+            <Col key={product?.productId}>
               <Product
                 productId={product?.productId}
                 productName={product?.productName}
@@ -73,7 +84,7 @@ function CategoryGroup({ category }) {
           ))}
       </Row>
       <Link
-        to={`/Products/${category.categoryId}`}
+        to={`/Products/${category?.categoryId}`}
         className={styles.to_category}
       >
         <button className={styles.btn_seemore}>See more</button>

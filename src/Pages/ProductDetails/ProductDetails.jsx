@@ -51,7 +51,7 @@ function ProductDetails() {
         console.log(foundedProduct);
       } catch (error) {
         setLoadingProduct(false);
-        throw error;
+        // throw error;
       }
     };
 
@@ -74,7 +74,7 @@ function ProductDetails() {
         setRelatedProducts(result);
       } catch (error) {
         setLoading(false);
-        throw error;
+        // throw error;
       }
     };
     fetchRelatedProducts();
@@ -98,12 +98,12 @@ function ProductDetails() {
               <Link to="/Home">Home</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
-              <Link to={`/Products/${product.categoryId}`}>
-                {product.categoryName || "..."}
+              <Link to={`/Products/${product?.categoryId}`}>
+                {product?.categoryName || "..."}
               </Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item active href="/ProductName">
-              {product.productName || "..."}
+              {product?.productName || "..."}
             </Breadcrumb.Item>
           </Breadcrumb>
         </div>
@@ -115,23 +115,23 @@ function ProductDetails() {
             <div style={imgObj} className={`${styles.product_image}`}></div>
             <div className={`${styles.product_details} pt-5 podition-ralative`}>
               <div className={styles.product_content}>
-                <h3 className="mb-3">{product.productName}</h3>
-                <p className="fs-6">{product.description}</p>
+                <h3 className="mb-3">{product?.productName}</h3>
+                <p className="fs-6">{product?.description}</p>
               </div>
               <div className={`${styles.product_action} flex`}>
                 <div className={`${styles.price}`}>
                   <FontAwesomeIcon icon={faDollarSign} />
-                  <span>{product.price}</span>
+                  <span>{product?.price}</span>
                 </div>
                 <div className={styles.stock_number}>
                   <p>
-                    {product.quantityInStock > 0 ? "In stock" : "Out stock"}
+                    {product?.quantityInStock > 0 ? "In stock" : "Out stock"}
                   </p>
-                  <span>{product.quantityInStock}</span>
+                  <span>{product?.quantityInStock}</span>
                 </div>
                 <ShopingCartBtn
-                  productId={product.productId}
-                  price={product.price}
+                  productId={product?.productId}
+                  price={product?.price}
                 />
               </div>
             </div>
@@ -145,14 +145,14 @@ function ProductDetails() {
             {!isloading &&
               Array.isArray(relatedProducts) &&
               relatedProducts?.length > 0 &&
-              relatedProducts?.map((product, idx) => (
-                <Col key={idx}>
+              relatedProducts?.map((product) => (
+                <Col key={product?.productId}>
                   <Product
-                    productId={product.productId}
-                    productName={product.productName}
-                    description={product.description}
-                    price={product.price}
-                    imageURL={product.imageURL}
+                    productId={product?.productId}
+                    productName={product?.productName}
+                    description={product?.description}
+                    price={product?.price}
+                    imageURL={product?.imageURL}
                   />
                 </Col>
               ))}

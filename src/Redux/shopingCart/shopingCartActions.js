@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AddShopingCart, GetShopingCart } from '../../Api/ShopingCart';
+import { AddOrder } from '../../Api/Order';
 import { AddShopingCartItem, IncreaseItemQuantity, DecreaseItemQuantity, GetAllShopingCartItems, DeleteShopingCartItem } from '../../Api/ShopingCartItem';
 
 export const AddShopingCartAC = createAsyncThunk(
@@ -8,6 +9,18 @@ export const AddShopingCartAC = createAsyncThunk(
         try {
             // 
             const response = await AddShopingCart(ShopingCartData);
+            return response;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data);
+        }
+    }
+);
+export const AddOrderAC = createAsyncThunk(
+    'Order/Add',
+    async (ShopingCartId, thunkAPI) => {
+        try {
+            // 
+            const response = await AddOrder(ShopingCartId);
             return response;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.response.data);

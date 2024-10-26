@@ -7,7 +7,7 @@ export const GetCountries = async () => {
         const response = await axios.get(`${URL}/Api/country`);
         return response.data;
     } catch (error) {
-        console.log(error);
-        throw error;
+         
+        // throw error;
     }
 }

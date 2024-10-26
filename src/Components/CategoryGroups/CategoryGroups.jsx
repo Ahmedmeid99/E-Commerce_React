@@ -22,19 +22,19 @@ function CategoryGroups() {
         let results = await GetCategories();
         setCategories(results);
       } catch (error) {
-        throw error;
+        // throw error;
       }
     };
     fetchCategoriesProducts();
     
-  }, []);
+  }, []); // categories
 
 
   return (
     <>
     {Array.isArray(categories) && categories?.length > 0 && 
-    categories?.map((category,index)=>(
-      <CategoryGroup key={index} category={category}/>
+    categories?.map((category)=>(
+      <CategoryGroup key={category.categoryId} category={category}/>
     
     ))}
     </>

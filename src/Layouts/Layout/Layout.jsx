@@ -11,8 +11,6 @@ function Layout(props) {
   // useEffect(() => {
   //   shopingCartDispatch(GetAllShopingCartItemsAC(ShopingCart?.shopingCartId));
   // }, [shopingCartDispatch]);
-  console.log("Layout ShopingCart : ", ShopingCart);
-  console.log("Layout ShopingCartItems : ",ShopingCartItems)
   return (
     <div>
       <NavBar />

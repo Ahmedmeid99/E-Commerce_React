@@ -20,7 +20,7 @@ function GlobalSearch(props) {
         const results = await SearchGlobalProducts(e.target.value.trim());
         setProducts(results);
       } catch (error) {
-        throw error;
+        // throw error;
       }
     }
 
@@ -37,12 +37,13 @@ function GlobalSearch(props) {
             </Row>
             <div>
             {Array.isArray(Products) && Products?.length > 0 && 
-            Products?.map((product, index) => (
+            Products?.map((product) => (
                 <ProductRow
-                  id={product.productId}
-                  title={product.productName}
-                  description={product.description}
-                  price={product.price}
+                key={product?.productId}
+                  id={product?.productId}
+                  title={product?.productName}
+                  description={product?.description}
+                  price={product?.price}
                 />
             ))}
             </div>

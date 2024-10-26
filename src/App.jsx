@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import {
   Route, //select the path and eny component will render
-  Routes, // never render two component in the same time onley the first path
+  Routes, // never render two component in the same time onley the first path 
 } from "react-router-dom";
 import {Spinner} from "react-bootstrap"; 
 
@@ -36,8 +36,9 @@ function App() {
           <Route path="/Settings" element={<h1 className="not_completed">Not Completed</h1>} />
           <Route path="/CustomerInfo" element={<h1 className="not_completed">Not Completed</h1>} />
           <Route path="/ContentUs" element={<h1 className="not_completed">Not Completed</h1>} />
+          <Route path="*" element={<Home />} />
         </Routes>
-      </Suspense>
+      </Suspense> 
     </>
   );
 }

@@ -23,13 +23,12 @@ function ReviewForm({ productId, onAddReview, onUpdateReview, mode ,starsReview,
         rating: stars,
         reviewDate: new Date().toISOString(),
       };
-      console.log("work from addReview\n", Review);
       onAddReview(Review);
       setReviewText("");
       setStars(0);
       // reset addReview component
     } catch (error) {
-      throw error;
+      // throw error;
     }
   };
   const handleUpdateReview=()=>{
@@ -48,7 +47,7 @@ function ReviewForm({ productId, onAddReview, onUpdateReview, mode ,starsReview,
       onUpdateReview(updatedReview);
       // reset addReview component
     } catch (error) {
-      throw error;
+      // throw error;
     }
  
   }

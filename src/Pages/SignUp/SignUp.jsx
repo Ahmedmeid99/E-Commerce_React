@@ -1,3 +1,4 @@
+
 import React, { useReducer, useState, useEffect } from "react";
 import {
   Form,
@@ -38,7 +39,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         [action.field]: action.value,
-        errors: { ...state.errors, [action.field]: "" },
+        errors: { ...state.errors, [action.field]: "" }, // set ex: usename error ""
       };
     case "SET_ERROR":
       return {
@@ -49,6 +50,17 @@ const reducer = (state, action) => {
       return state;
   }
 };
+
+const validateEmail = (email) => {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+};
+
+const validatePhone = (phone) => {
+  const re = /^[0-9]{11}$/;
+  return re.test(phone);
+};
+
 
 // Validation function
 const validate = (state) => {
@@ -61,42 +73,32 @@ const validate = (state) => {
   if (!state.email) errors.email = "Email is required";
   if (!state.address) errors.address = "Address is required";
   if (!state.countryId) errors.countryId = "Country is required";
+  if(!validateEmail(state.email)) errors.email = "Invalid email address Must contain @gmail.com";
+  if(!validatePhone(state.phone)) errors.phone = "Phone number must be 11 digits";
   return errors;
 };
-const validatePhone =(phone)=>{
-  const re = /^[0-9]{11}$/;
-  return re.test(phone);
-}
 
-const validateEmail =(email)=>{
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
-}
+
 
 const SignUp = () => {
   const customerDispatch = useDispatch();
-  const navigate = useNavigate(); // استخدام useNavigate للتحويل
+  const navigate = useNavigate(); 
 
   const { isSignup, loading, error } = useSelector((state) => state.customer);
 
-  useEffect(() => {
-    if (isSignup) {
-      navigate("/Login");
-    }
-  }, [isSignup, navigate]);
-
-  const errors = useSelector((state) => state.customer.errors);
+ // const errors = useSelector((state) => state.customer.errors);
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const [countries, setCountries] = useState([]);
+ 
   useEffect(() => {
     const fetchCountries = async () => {
       try {
         const result = await GetCountries();
         setCountries(result);
       } catch (error) {
-        throw error;
+        // throw error;
       }
     };
     fetchCountries();
@@ -106,16 +108,17 @@ const SignUp = () => {
     };
   }, []);
 
-  const Customer = {
-    userName: state?.username,
-    password: state?.password,
-    gendor: state?.gendor,
-    dateOfBirth: state?.dateOfBirth,
-    phone: state?.phone,
-    email: state?.email,
-    address: state?.address || null,
-    countryID: state?.countryId,
-  };
+  // const Customer = {
+  //   userName: state?.username,
+  //   password: state?.password,
+  //   gendor: state?.gendor,
+  //   dateOfBirth: state?.dateOfBirth,
+  //   phone: state?.phone,
+  //   email: state?.email,
+  //   address: state?.address || null,
+  //   countryID: state?.countryId,
+  // };
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch({ type: "SET_FIELD_VALUE", field: name, value });
@@ -130,25 +133,29 @@ const SignUp = () => {
     });
   };
 
-  const handlePhonekeyPress =(e)=>{
+  const handlePhonekeyPress = (e) => {
     const charCode = e.charCode;
-    if(charCode < 48 || charCode > 57){
+    if (charCode < 48 || charCode > 57) {
       e.preventDefault();
     }
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(!validateEmail(state.email)){
-      dispatch({ type: "SET_ERROR", field:'email',  error:'Invalid email address' });
-    }
-
-    if(!validatePhone(state.phone)){
-      dispatch({ type: "SET_ERROR", field:'phone', error:'Phone number must be 11 digits' });
-    }
+    const Customer = {
+      UserName: state?.username,
+      Password: state?.password,
+      Gendor: state?.gendor,
+      DateOfBirth: state?.dateOfBirth,
+      Phone: state?.phone,
+      Email: state?.email,
+      Address: state?.address || null,
+      CountryID: state?.countryId,
+    };
 
     const errors = validate(state);
+
     if (Object.keys(errors).length > 0) {
       for (const field in errors) {
         dispatch({ type: "SET_ERROR", field, error: errors[field] });
@@ -158,6 +165,11 @@ const SignUp = () => {
       // tell use that form submated succefuly (use Model)
       console.log("Form submitted successfully", Customer);
       customerDispatch(signupCustomer(Customer));
+      
+      // after Sucess Sigin up navegate to Login Page
+      setTimeout(() => {
+        navigate("/Login");
+      }, 400);
     }
   };
 
@@ -309,14 +321,16 @@ const SignUp = () => {
                           onChange={handleCountryChange}
                         >
                           <option value="">Select Country</option>
-                          {countries?.map((country) => (
-                            <option
-                              key={country.countryID}
-                              value={country.countryID}
-                            >
-                              {country.countryName}
-                            </option>
-                          ))}
+                          {Array.isArray(countries) &&
+                            countries?.length > 0 &&
+                            countries?.map((country) => (
+                              <option
+                                key={country.countryId}
+                                value={country.countryId}
+                              >
+                                {country.countryName}
+                              </option>
+                            ))}
                         </Form.Select>
                         <Form.Control.Feedback type="invalid">
                           {state.errors.countryId}

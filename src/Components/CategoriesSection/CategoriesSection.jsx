@@ -12,11 +12,11 @@ function CategoriesSection() {
         let results = await GetCategories();
         setCategories(results);
       } catch (error) {
-        throw error;
+        // throw error;
       }
     };
     fetchCategories();
-  }, []);
+  }, []); //categories
 
   return (
     <div className={`${styles.categories} container_app`}>
@@ -26,7 +26,7 @@ function CategoriesSection() {
         {Array.isArray(categories) &&
               categories?.length > 0 &&
         categories?.map((category, index) => (
-          <Col key={index}>
+          <Col key={category?.categoryId}>
             <Link to={`Products/${category?.categoryId}`}>
               {category?.categoryName}
             </Link>

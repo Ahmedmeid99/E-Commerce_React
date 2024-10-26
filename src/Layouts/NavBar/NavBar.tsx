@@ -3,7 +3,7 @@ import ShopingCart from "../../Components/ShopingCart/ShopingCart/ShopingCart";
 import ShopingCartNavIcon from "../../Components/ShopingCart/ShopingCartNavIcon/ShopingCartNavIcon";
 
 import GlobalSearch from "../../Components/GlobalSearch/GlobalSearch";
-import UserMenue from "../../Components/UserMenue/UserMenue";
+import UserMenue from "../../Components/UserMenue/UserMenue"; 
 import styles from "./NavBar.module.css";
 import {
   Link, //add path to the link

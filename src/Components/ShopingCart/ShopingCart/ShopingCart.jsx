@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {
   AddShopingCartAC,
+  AddOrderAC,
   GetShopingCartAC,
   GetAllShopingCartItemsAC,
   } from "../../../Redux/shopingCart/shopingCartActions";
@@ -15,16 +16,14 @@ import { AddOrder } from "../../../Api/Order.js"
 import { useSelector ,useDispatch} from "react-redux";
 import ShopingCartItem from "../ShopingCartItem/ShopingCartItem";
 import styles from "./ShopingCart.module.css";
-
  function ShopingCart() {
-  const { ShopingCartItems,ShopingCart ,ClearShopingCartItems} = useSelector((state) => state.shopingCart);
+  const { ShopingCartItems,ShopingCart } = useSelector((state) => state.shopingCart);
   const { Customer } = useSelector((state) => state.customer);
   const [isLoading,setLoading]=useState(false);
   const [isSended,setSended]=useState(false);
-  const shopingCartDispatch = useDispatch();
-  const CartDispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  console.log(ShopingCartItems);
+  //console.log(ShopingCartItems);
 
   useEffect(()=>{
     
@@ -32,11 +31,11 @@ import styles from "./ShopingCart.module.css";
 
   const tryGetShopingCart = async() => {
      try {
-       const result = await shopingCartDispatch(
+       const result = await dispatch(
          GetShopingCartAC(Customer?.customerID)
        );
        if (result.meta.requestStatus === "rejected") {
-           await shopingCartDispatch(
+           await dispatch(
            AddShopingCartAC({
              customerId: Customer.customerID,
              createdAt: new Date().toISOString(),
@@ -44,36 +43,61 @@ import styles from "./ShopingCart.module.css";
            })
          );
       } else if (result.meta.requestStatus === "fulfilled") {
-         await shopingCartDispatch(
+         await dispatch(
           GetAllShopingCartItemsAC(result.payload.shopingCartId)
         );
       }
     } catch (error) {
-      throw error;
+      // throw error;
     }
     };
-    // useEffect(()=>{
-    //   tryGetShopingCart();
-    //   setSended(false);
-    // },[ShopingCartItems,ShopingCart])
     
+    const AddNewOrderAsync = async(shopingCartId)=>{
+      const result = await dispatch(
+        AddOrderAC(shopingCartId))// shopingCartId
+        if (result.meta.requestStatus === "rejected") {
+          return null;
+        }
+        else if (result.meta.requestStatus === "fulfilled") {
+          return result;
+        }
+      
+      
+    }
+    const [key, setKey] = useState(0);
 
-   const handleAddOrder = ()=>{
-    try{
-      setLoading(true);
-      setSended(false);
-      const result = AddOrder(ShopingCart.shopingCartId);// shopingCartId
-      CartDispatch(ClearShopingCartItems());
-      // Clear ShopingCartItems , ShopingCart
-      setSended(true);
-      if(result != null){
-        tryGetShopingCart();
-      console.log(result);
-      }
+    const refreshComponent = () => {
+        setKey(prevKey => prevKey + 1); // تغيير `key` سيؤدي إلى إعادة تحميل الكومبوننت
+    };
+    const handleAddOrder = async()=>{
+      try{
+        setLoading(true);
+        setSended(false);
+        if(ShopingCartItems.length == 0){
+          setLoading(false);
+          return;
+        }
+        const result = await AddNewOrderAsync(ShopingCart.shopingCartId);// shopingCartId
+        // Clear ShopingCartItems , ShopingCart
+        if(result != null){
+
+          setSended(true);
+          console.log(1,result);
+          // Create new Shoping cart after clear
+          await dispatch(
+            AddShopingCartAC({
+              customerId: Customer.customerID,
+              createdAt: new Date().toISOString(),
+              updatedAt: new Date().toISOString(),
+            })
+          );
+        }
+      
       setLoading(false)
-
+      console.log(2,result);
     }catch(error){
       setLoading(false);
+      console.log("3");
     }
 
    }

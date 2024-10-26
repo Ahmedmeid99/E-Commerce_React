@@ -1,6 +1,10 @@
 // CustomerSlice.js
-import { createSlice } from '@reduxjs/toolkit';
-import { signupCustomer, loginCustomer,updateCustomer } from './customerActions';
+import { createSlice } from "@reduxjs/toolkit";
+import {
+  signupCustomer,
+  loginCustomer,
+  updateCustomer,
+} from "./customerActions";
 
 const initialState = {
   Customer: null,
@@ -11,15 +15,9 @@ const initialState = {
 };
 
 const CustomerSlice = createSlice({
-  name: 'Customer',
+  name: "Customer",
   initialState,
-  reducers: {
-    // Define any synchronous reducers if needed
-    fetchCustomer(state, action){
-      // try get customer and return true, false
-    }
-
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(signupCustomer.pending, (state) => {
@@ -62,9 +60,8 @@ const CustomerSlice = createSlice({
         state.loading = false;
         state.isLogin = false;
         state.error = action.payload; // from thunkAPI.rejectWithValue(error.response.data);
-      })
+      });
   },
 });
 
 export default CustomerSlice.reducer;
- 

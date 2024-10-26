@@ -37,7 +37,7 @@ const ShopingCartItem = ({ ShopingCartItem }) => {
         console.log(foundedProduct);
       } catch (error) {
         setLoadingProduct(false);
-        throw error;
+        // throw error;
       }
     };
 

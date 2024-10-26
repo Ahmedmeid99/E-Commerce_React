@@ -1,11 +1,15 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { SignUpCustomer, LoginCustomer,UpdateCustomerInfo } from '../../Api/Customer';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  SignUpCustomer,
+  LoginCustomer,
+  UpdateCustomerInfo,
+} from "../../Api/Customer";
 
 export const signupCustomer = createAsyncThunk(
-  'Customer/signup',
+  "Customer/signup",
   async (CustomerData, thunkAPI) => {
     try {
-      // 
+      //
       const response = await SignUpCustomer(CustomerData);
       return response;
     } catch (error) {
@@ -15,7 +19,7 @@ export const signupCustomer = createAsyncThunk(
 );
 
 export const loginCustomer = createAsyncThunk(
-  'Customer/login',
+  "Customer/login",
   async (credentials, thunkAPI) => {
     try {
       const response = await LoginCustomer(credentials);
@@ -26,7 +30,7 @@ export const loginCustomer = createAsyncThunk(
   }
 );
 export const updateCustomer = createAsyncThunk(
-  'Customer/update',
+  "Customer/update",
   async (credentials, thunkAPI) => {
     try {
       const response = await UpdateCustomerInfo(credentials);

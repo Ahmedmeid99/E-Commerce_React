@@ -10,10 +10,10 @@ function CtegoryAccordion({ categories }) {
         <Accordion.Body className="p-0 m-0 fs-6">
           <ListGroup className="border-0">
             {Array.isArray(categories) && categories?.length > 0 && 
-            categories?.map((category, index) => (
-              <ListGroup.Item key={index}>
-                <NavLink to={`/Products/${category.categoryId}`}>
-                  {category.categoryName}
+            categories?.map((category) => (
+              <ListGroup.Item key={category?.categoryId}>
+                <NavLink to={`/Products/${category?.categoryId}`}>
+                  {category?.categoryName}
                 </NavLink>
               </ListGroup.Item>
             ))}

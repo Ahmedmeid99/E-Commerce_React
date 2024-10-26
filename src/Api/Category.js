@@ -10,8 +10,7 @@ export const GetCategories = async () => {
         const response = await api.get(`/Api/ProductCategory`);
         return response.data;
     } catch (error) {
-        console.log(error);
-        throw error;
+        // throw error;
     }
 }
 export const GetCategory = async (categoryId) => {
@@ -19,7 +18,7 @@ export const GetCategory = async (categoryId) => {
         const response = await api.get(`/Api/ProductCategory/${categoryId}`);
         return response.data;
     } catch (error) {
-        console.log(error);
-        throw error;
+         
+        // throw error;
     }
 }
