@@ -47,7 +47,7 @@ function Reviews({ productId }) {
   const handleUpdateReview = async (reviewId, updatedReview) => {
     try {
       const returnReview = await editProductReview(
-        Customer.customerID,
+        Customer.CustomerId,
         reviewId,
         updatedReview
       );
@@ -63,11 +63,11 @@ function Reviews({ productId }) {
   };
 
   const handleDeleteReview = async (id) => {
-    const DeletedReview = await deleteProductReview(Customer.customerID, id);
+    const DeletedReview = await deleteProductReview(Customer.CustomerId, id);
     if (DeletedReview == null) {
       // show alert to tell hem deleted action has not been deleted
     } else {
-      setReviews(reviews.filter((review) => review.reviewId != id));
+      setReviews(reviews.filter((review) => review.ReviewId != id));
     }
   };
 

@@ -11,13 +11,15 @@ function ReviewForm({ productId, onAddReview, onUpdateReview, mode ,starsReview,
   const [reviewText, setReviewText] = useState(textReview || "");
   const [stars, setStars] = useState(starsReview || 0);
   
+  console.log(Customer);
   const handleAddedReview = () => {
     try {
       if(reviewText.trim()==""){
         return;
       }
+      
       const Review = {
-        CustomerId: Customer.customerID,
+        CustomerId: Customer.CustomerId,
         ProductId: productId,
         ReviewText: reviewText,
         Rating: stars,
@@ -37,7 +39,7 @@ function ReviewForm({ productId, onAddReview, onUpdateReview, mode ,starsReview,
         return;
       }
       const updatedReview = {
-        CustomerId: Customer.customerID,
+        CustomerId: Customer.CustomerId,
         ReviewText: reviewText,
         Rating: stars,
         ReviewDate: new Date().toISOString(),

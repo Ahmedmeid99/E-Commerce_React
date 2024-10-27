@@ -23,7 +23,7 @@ import styles from "./ShopingCart.module.css";
   const [isSended,setSended]=useState(false);
   const dispatch = useDispatch();
 
-  //console.log(ShopingCartItems);
+  console.log(ShopingCartItems);
 
   useEffect(()=>{
     
@@ -37,7 +37,7 @@ import styles from "./ShopingCart.module.css";
        if (result.meta.requestStatus === "rejected") {
            await dispatch(
            AddShopingCartAC({
-             customerId: Customer.customerID,
+             customerId: Customer.CustomerId,
              createdAt: new Date().toISOString(),
              updatedAt: new Date().toISOString(),
            })
@@ -86,7 +86,7 @@ import styles from "./ShopingCart.module.css";
           // Create new Shoping cart after clear
           await dispatch(
             AddShopingCartAC({
-              customerId: Customer.customerID,
+              customerId: Customer.CustomerId,
               createdAt: new Date().toISOString(),
               updatedAt: new Date().toISOString(),
             })

@@ -26,12 +26,12 @@ function ShopingCartNavIcon({ onClickHandler }) {
     const fetchData = async () => {
       try {
         const result = await shopingCartDispatch(
-          GetShopingCartAC(Customer.customerID)
+          GetShopingCartAC(Customer.CustomerId)
         );
         if (result.meta.requestStatus === "rejected") {
           await shopingCartDispatch(
             AddShopingCartAC({
-              customerId: Customer.customerID,
+              customerId: Customer.CustomerId,
               createdAt: new Date().toISOString(),
               updatedAt: new Date().toISOString(),
             })
@@ -44,9 +44,9 @@ function ShopingCartNavIcon({ onClickHandler }) {
       } catch (error) {
         await shopingCartDispatch(
           AddShopingCartAC({
-            customerId: Customer.customerID,
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString(),
+            CustomerId: Customer.CustomerId,
+            CreatedAt: new Date().toISOString(),
+            UpdatedAt: new Date().toISOString(),
           })
         );
         // throw error;
@@ -65,7 +65,7 @@ function ShopingCartNavIcon({ onClickHandler }) {
           <FontAwesomeIcon icon={faCartShopping} />
         </NavLink>
         <div className={`${styles.cart_item_count} ${styles.is_empty_remove} `}>
-          <span>{ShopingCartItems.length}</span>
+          <span>{ShopingCartItems?.length}</span>
         </div>
       </div>
     </>

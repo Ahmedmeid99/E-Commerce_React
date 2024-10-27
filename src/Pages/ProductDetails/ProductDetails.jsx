@@ -40,11 +40,15 @@ function ProductDetails() {
       try {
         let foundedProduct = await GetProduct(params.ProductId);
         let backgroundImgStyle = {
-          backgroundImage: `url(${foundedProduct?.ImageUrL})`,
+          backgroundImage: `url(${foundedProduct?.ImageUrl})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
         };
+        console.log("params.ProductId",params.ProductId);
+        
+        console.log("foundedProduct",foundedProduct);
+        
         setLoadingProduct(false);
         setProduct(foundedProduct);
         setImgObj(backgroundImgStyle);
@@ -57,7 +61,6 @@ function ProductDetails() {
 
     fetchProductDetails();
     return () => {
-      false;
     };
   }, [location.pathname]);
 
@@ -72,6 +75,7 @@ function ProductDetails() {
         console.log(result);
         setLoading(false);
         setRelatedProducts(result);
+        console.log(result,product)
       } catch (error) {
         setLoading(false);
         // throw error;
@@ -79,7 +83,6 @@ function ProductDetails() {
     };
     fetchRelatedProducts();
     return () => {
-      false;
     };
   }, [product]);
 
@@ -152,7 +155,7 @@ function ProductDetails() {
                     productName={product?.ProductName}
                     description={product?.Description}
                     price={product?.Price}
-                    imageURL={product?.ImageUrL}
+                    imageURL={product?.ImageUrl}
                   />
                 </Col>
               ))}

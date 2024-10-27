@@ -31,9 +31,9 @@ export const GetTopCategoryProducts = async (categoryId, count) => {
   }
 }
 
-export const GetRelatedCategoryProducts = async (categoryId,ExcludedProduct, count) => {
+export const GetRelatedCategoryProducts = async (categoryId,excludedProduct, count) => {
   try {
-    const response = await axios.get(`${URL}/Api/Product/category/${categoryId}/related?excludedProduct=${ExcludedProduct}&count=${count}`);
+    const response = await axios.get(`${URL}/Api/Product/category/${categoryId}/related?excludedProduct=${excludedProduct}&count=${count}`);
     return response.data;
   } catch (error) {
      

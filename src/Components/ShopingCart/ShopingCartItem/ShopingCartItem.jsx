@@ -21,9 +21,9 @@ const ShopingCartItem = ({ ShopingCartItem }) => {
     console.log("from shopingCartItem component", product);
     const fetchProductDetails = async () => {
       try {
-        let foundedProduct = await GetProduct(ShopingCartItem?.productId);
+        let foundedProduct = await GetProduct(ShopingCartItem?.ProductId);
         let backgroundImgStyle = {
-          backgroundImage: `url(${foundedProduct?.imageURL})`,
+          backgroundImage: `url(${foundedProduct?.ImageUrl})`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -56,8 +56,8 @@ const ShopingCartItem = ({ ShopingCartItem }) => {
         </div>
         {/* .div > .product.productName */}
         <div className={styles.content}>
-          <h6>{product?.productName}</h6>
-          <p className={styles.description}>{product?.description}</p>
+          <h6>{product?.ProductName}</h6>
+          <p className={styles.description}>{product?.Description}</p>
         </div>
         <div className={`${styles.cart_item_contol} flex`}>
           <div className={styles.control_btn}>
@@ -65,19 +65,19 @@ const ShopingCartItem = ({ ShopingCartItem }) => {
               icon={faPlus}
               onClick={() =>
                 shopingCartDispatch(
-                  IncreaseShopingCartItemAC(ShopingCartItem?.shopingCartItemId)
+                  IncreaseShopingCartItemAC(ShopingCartItem?.ShopingCartItemId)
                 )
               }
             />{" "}
             {/* Increase Quantity*/}
           </div>
-          <div className={styles.count}>{ShopingCartItem?.quantity}</div>
+          <div className={styles.count}>{ShopingCartItem?.Quantity}</div>
           <div className={styles.control_btn}>
             <FontAwesomeIcon
               icon={faMinus}
               onClick={() =>
                 shopingCartDispatch(
-                  DecreaseShopingCartItemAC(ShopingCartItem?.shopingCartItemId)
+                  DecreaseShopingCartItemAC(ShopingCartItem?.ShopingCartItemId)
                 )
               }
             />{" "}
@@ -87,9 +87,9 @@ const ShopingCartItem = ({ ShopingCartItem }) => {
         {/* <!-- must have price } ${  totalPrice --> */}
         <div>
           <div className={styles.total_price}>
-            {ShopingCartItem?.quantity == 1 ?"":`${ShopingCartItem?.price*ShopingCartItem?.quantity}$`}
+            {ShopingCartItem?.Quantity == 1 ?"":`${ShopingCartItem?.Price * ShopingCartItem?.Quantity}$`}
           </div>
-          <div className={styles.price}>{ShopingCartItem?.price}$</div>
+          <div className={styles.price}>{ShopingCartItem?.Price}$</div>
         </div>
       </div>
       <div className={styles.close_btn}>
@@ -97,7 +97,7 @@ const ShopingCartItem = ({ ShopingCartItem }) => {
           icon={faXmark}
           onClick={() =>
             shopingCartDispatch(
-              DeleteShopingCartItemAC(ShopingCartItem?.shopingCartItemId)
+              DeleteShopingCartItemAC(ShopingCartItem?.ShopingCartItemId)
             )
           }
         />

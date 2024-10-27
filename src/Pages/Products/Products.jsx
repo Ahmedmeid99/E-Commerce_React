@@ -244,7 +244,7 @@ function Products() {
                     productName={product?.ProductName}
                     description={product?.Description}
                     price={product?.Price}
-                    imageURL={product?.ImageUrL}
+                    imageURL={product?.ImageUrl}
                   />
                 </Col>
               ))}
