@@ -38,7 +38,7 @@ function CategoryGroup({ category }) {
 
     let firstProduct = products?.length != 0 ? products[0] : {};
   const backgroundImgStyle = {
-    backgroundImage: `linear-gradient(45deg, rgb(151 0 255 / 71%), rgb(230 0 255 / 61%)),url(${firstProduct?.ImageURL})`,
+    backgroundImage: `linear-gradient(45deg, rgb(151 0 255 / 71%), rgb(230 0 255 / 61%)),url(${firstProduct?.ImageUrL})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -72,7 +72,7 @@ function CategoryGroup({ category }) {
                 productName={product?.ProductName}
                 description={product?.Description}
                 price={product?.Price}
-                imageURL={product?.ImageURL}
+                imageURL={product?.ImageUrL}
               />
             </Col>
           ))}

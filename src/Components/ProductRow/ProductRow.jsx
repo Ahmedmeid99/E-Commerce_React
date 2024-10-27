@@ -9,9 +9,9 @@ import {
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-function ProductRow({id,title,description,price,ImgUrL}) {
+function ProductRow({id,title,description,price,ImageURL}) {
   const imgObj = {
-    backgroundImage:`url(${ImgUrL})`,
+    backgroundImage:`url(${ImageURL})`,
     backgroundPosition: "center",
     backgroundRepeat:"no-repeat",
     backgroundSize: "cover",

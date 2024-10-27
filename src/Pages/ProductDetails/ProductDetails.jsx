@@ -40,7 +40,7 @@ function ProductDetails() {
       try {
         let foundedProduct = await GetProduct(params.ProductId);
         let backgroundImgStyle = {
-          backgroundImage: `url(${foundedProduct?.ImageURL})`,
+          backgroundImage: `url(${foundedProduct?.ImageUrL})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
@@ -146,13 +146,13 @@ function ProductDetails() {
               Array.isArray(relatedProducts) &&
               relatedProducts?.length > 0 &&
               relatedProducts?.map((product) => (
-                <Col key={product?.productId}>
+                <Col key={product?.ProductId}>
                   <Product
-                    productId={product?.productId}
-                    productName={product?.productName}
-                    description={product?.description}
-                    price={product?.price}
-                    imageURL={product?.imageURL}
+                    productId={product?.ProductId}
+                    productName={product?.ProductName}
+                    description={product?.Description}
+                    price={product?.Price}
+                    imageURL={product?.ImageUrL}
                   />
                 </Col>
               ))}
@@ -165,7 +165,7 @@ function ProductDetails() {
           </Row>
         </div>
         {/*  */}
-        <Reviews productId={product?.productId} />
+        <Reviews productId={product?.ProductId} />
       </div>
     </>
   );

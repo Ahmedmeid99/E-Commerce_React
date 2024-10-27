@@ -144,7 +144,7 @@ function Products() {
     }
 
     const result = await SearchCategoryProducts(
-      activeCategory.categoryId,
+      activeCategory.CategoryId,
       e.target.value
     );
     setIsShowPageNumbers(false);
@@ -160,7 +160,7 @@ function Products() {
     }
 
     const result = await GetInRangeCategoryProducts(
-      activeCategory.categoryId,
+      activeCategory.CategoryId,
       MinValue.current.value,
       MaxValue.current.value
     );
@@ -183,7 +183,7 @@ function Products() {
               <Link to="/Home">Home</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item active>
-              {activeCategory?.categoryName || "..."}
+              {activeCategory?.CategoryName || "..."}
             </Breadcrumb.Item>
           </Breadcrumb>
         </div>
@@ -244,7 +244,7 @@ function Products() {
                     productName={product?.ProductName}
                     description={product?.Description}
                     price={product?.Price}
-                    imageURL={product?.ImageURL}
+                    imageURL={product?.ImageUrL}
                   />
                 </Col>
               ))}
