@@ -234,11 +234,11 @@ function Products() {
             </Col>
           </Row>
 
-          <Row xs={2} md={3} lg={4} className="g-4 mt-1">
+          <Row xs={2} md={3} lg={4} className=" mt-1">
             {!isloading &&
               Array.isArray(Products) && Products?.length > 0 && 
               Products?.map((product) => (
-                <Col key={product?.ProductId} className="">
+                <Col key={product?.ProductId} className="p-1 m-0 p-sm-2">
                   <Product
                     productId={product?.ProductId} 
                     productName={product?.ProductName}

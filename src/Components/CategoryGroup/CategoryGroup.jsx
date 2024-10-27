@@ -62,11 +62,11 @@ function CategoryGroup({ category }) {
         <h3 className={styles.category_name}>{category?.CategoryName}</h3>
       </div>
       {/* products.map(product) <Product/> */}
-      <Row xs={2} md={3} xl={4} className="g-4 mt-1">
+      <Row xs={2} md={3} xl={4} className="mt-1 ">
         {!isloading &&
           Array.isArray(products) && products?.length > 0 && 
           products?.slice(1).map((product) => (
-            <Col key={product?.ProductId}>
+            <Col className="p-1 m-0 p-sm-2" key={product?.ProductId}>
               <Product
                 productId={product?.ProductId}
                 productName={product?.ProductName}

@@ -144,12 +144,12 @@ function ProductDetails() {
         {/*  */}
         <div className={`${styles.related_products} mt-5 pb-5 mb-5 pb-5`}>
           <h4>Related Products</h4>
-          <Row xs={2} md={3} xl={4} className="g-4 mt-1">
+          <Row xs={2} md={3} xl={4} className=" mt-1">
             {!isloading &&
               Array.isArray(relatedProducts) &&
               relatedProducts?.length > 0 &&
               relatedProducts?.map((product) => (
-                <Col key={product?.ProductId}>
+                <Col  className="p-1 m-0 p-sm-2" key={product?.ProductId}>
                   <Product
                     productId={product?.ProductId}
                     productName={product?.ProductName}
