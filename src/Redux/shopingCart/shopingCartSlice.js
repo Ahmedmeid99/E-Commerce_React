@@ -77,7 +77,7 @@ const shopingCartSlice = createSlice({
             })
             .addCase(DeleteShopingCartItemAC.fulfilled, (state, action) => {
                 state.loading = false;
-                state.ShopingCartItems = state.ShopingCartItems?.filter((shopingCartItem) => shopingCartItem.shopingCartItemId != action.payload.shopingCartItemId);
+                state.ShopingCartItems = state.ShopingCartItems?.filter((shopingCartItem) => shopingCartItem.ShopingCartItemId != action.payload.ShopingCartItemId);
             })
             .addCase(DeleteShopingCartItemAC.rejected, (state, action) => {
                 state.loading = false;
@@ -91,7 +91,7 @@ const shopingCartSlice = createSlice({
                 state.loading = false;
                 // state.ShopingCartItems =[...state.ShopingCartItems, action.payload];
                 state.ShopingCartItems?.map((shopingCartItem) =>
-                    shopingCartItem.shopingCartItemId == action.payload.shopingCartItemId ? { ...shopingCartItem, totalPrice: (shopingCartItem.quantity + 1) * shopingCartItem.price, quantity: shopingCartItem.quantity++ } : shopingCartItem);
+                    shopingCartItem.ShopingCartItemId == action.payload.ShopingCartItemId ? { ...shopingCartItem, TotalPrice: (shopingCartItem.Quantity + 1) * shopingCartItem.Price, Quantity: shopingCartItem.Quantity++ } : shopingCartItem);
             })
             .addCase(IncreaseShopingCartItemAC.rejected, (state, action) => {
                 state.loading = false;
@@ -105,7 +105,7 @@ const shopingCartSlice = createSlice({
                 state.loading = false;
                 // state.ShopingCartItems = [...state.ShopingCartItems, action.payload];
                 state.ShopingCartItems?.map((shopingCartItem) =>
-                    shopingCartItem.shopingCartItemId == action.payload.shopingCartItemId && shopingCartItem.quantity > 1 ? { ...shopingCartItem,  totalPrice: (shopingCartItem.quantity - 1) * shopingCartItem.price, quantity: shopingCartItem.quantity-- } : shopingCartItem);
+                    shopingCartItem.ShopingCartItemId == action.payload.ShopingCartItemId && shopingCartItem.Quantity > 1 ? { ...shopingCartItem,  TotalPrice: (shopingCartItem.Quantity - 1) * shopingCartItem.Price, Quantity: shopingCartItem.Quantity-- } : shopingCartItem);
             })
             .addCase(DecreaseShopingCartItemAC.rejected, (state, action) => {
                 state.loading = false;
@@ -122,6 +122,7 @@ const shopingCartSlice = createSlice({
             .addCase(GetAllShopingCartItemsAC.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
+                state.ShopingCartItems = [];
             });
     },
 });

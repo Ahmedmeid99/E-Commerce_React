@@ -20,6 +20,8 @@ function ShopingCartNavIcon({ onClickHandler }) {
   const { ShopingCart, ShopingCartItems, error } = useSelector(
     (state) => state.shopingCart
   );
+  console.log("FROM shopingCart navicon", Customer);
+  
 
    useEffect(() => {
     //try get customer ShopingCart if field create one
@@ -31,14 +33,14 @@ function ShopingCartNavIcon({ onClickHandler }) {
         if (result.meta.requestStatus === "rejected") {
           await shopingCartDispatch(
             AddShopingCartAC({
-              customerId: Customer.CustomerId,
-              createdAt: new Date().toISOString(),
-              updatedAt: new Date().toISOString(),
+              CustomerId: Customer.CustomerId,
+              CreatedAt: new Date().toISOString(),
+              UpdatedAt: new Date().toISOString(),
             })
           );
         } else if (result.meta.requestStatus === "fulfilled") {
           await shopingCartDispatch(
-            GetAllShopingCartItemsAC(result.payload.shopingCartId)
+            GetAllShopingCartItemsAC(result.payload.ShopingCartId)
           );
         }
       } catch (error) {
@@ -52,6 +54,7 @@ function ShopingCartNavIcon({ onClickHandler }) {
         // throw error;
       }
     };
+    
     fetchData();
 
     console.log("catch ShopingCart", ShopingCart);

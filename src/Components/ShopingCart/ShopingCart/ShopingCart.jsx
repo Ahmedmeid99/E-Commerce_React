@@ -32,19 +32,19 @@ import styles from "./ShopingCart.module.css";
   const tryGetShopingCart = async() => {
      try {
        const result = await dispatch(
-         GetShopingCartAC(Customer?.customerID)
+         GetShopingCartAC(Customer.CustomerId)
        );
        if (result.meta.requestStatus === "rejected") {
            await dispatch(
            AddShopingCartAC({
-             customerId: Customer.CustomerId,
-             createdAt: new Date().toISOString(),
-             updatedAt: new Date().toISOString(),
+             CustomerId: Customer.CustomerId,
+             CreatedAt: new Date().toISOString(),
+             UpdatedAt: new Date().toISOString(),
            })
          );
       } else if (result.meta.requestStatus === "fulfilled") {
          await dispatch(
-          GetAllShopingCartItemsAC(result.payload.shopingCartId)
+          GetAllShopingCartItemsAC(result.payload.ShopingCartId)
         );
       }
     } catch (error) {
@@ -77,7 +77,7 @@ import styles from "./ShopingCart.module.css";
           setLoading(false);
           return;
         }
-        const result = await AddNewOrderAsync(ShopingCart.shopingCartId);// shopingCartId
+        const result = await AddNewOrderAsync(ShopingCart?.shopingCartId);// shopingCartId
         // Clear ShopingCartItems , ShopingCart
         if(result != null){
 
@@ -86,9 +86,9 @@ import styles from "./ShopingCart.module.css";
           // Create new Shoping cart after clear
           await dispatch(
             AddShopingCartAC({
-              customerId: Customer.CustomerId,
-              createdAt: new Date().toISOString(),
-              updatedAt: new Date().toISOString(),
+              CustomerId: Customer.CustomerId,
+              CreatedAt: new Date().toISOString(),
+              UpdatedAt: new Date().toISOString(),
             })
           );
         }

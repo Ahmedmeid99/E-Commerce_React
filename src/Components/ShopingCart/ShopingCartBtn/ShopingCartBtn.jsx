@@ -13,16 +13,17 @@ function ShopingCartBtn({ productId, price }) {
   const { ShopingCart,ShopingCartItems, error } = useSelector((state) => state.shopingCart);
   const { Customer } = useSelector((state) => state.customer);
   const shopingCartDispatch = useDispatch();
+  console.log("ShopingCartItems",ShopingCartItems);
 
   const handleClick = () => {
     if( ShopingCart == null){
         return;
     }
     if(ShopingCartItems != []){
-      const cartItem = ShopingCartItems.find((item)=>item.productId==productId)
+      const cartItem = ShopingCartItems.find((item)=>item.ProductId==productId)
       if(cartItem){
         shopingCartDispatch(
-          IncreaseShopingCartItemAC(cartItem?.shopingCartItemId)
+          IncreaseShopingCartItemAC(cartItem.ShopingCartItemId)
         )
         return;
       }
@@ -30,12 +31,13 @@ function ShopingCartBtn({ productId, price }) {
     
     //then
     const ShopingCartItem = {
-      ShopingCartId: ShopingCart.shopingCartId,
+      ShopingCartId: ShopingCart.ShopingCartId,
       ProductId: productId,
       Quantity: 1,
       Price: price,
       TotalPrice: price,
     };
+    
     
     shopingCartDispatch(AddShopingCartItemAC(ShopingCartItem));
     console.log("5", ShopingCartItem);
