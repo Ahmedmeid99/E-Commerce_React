@@ -19,7 +19,7 @@ function ShopingCartBtn({ productId, price }) {
     if( ShopingCart == null){
         return;
     }
-    if(ShopingCartItems != []){
+    if (ShopingCartItems.length > 0) {
       const cartItem = ShopingCartItems.find((item)=>item.ProductId==productId)
       if(cartItem){
         shopingCartDispatch(
@@ -39,8 +39,8 @@ function ShopingCartBtn({ productId, price }) {
     };
     
     
-    shopingCartDispatch(AddShopingCartItemAC(ShopingCartItem));
-    console.log("5", ShopingCartItem);
+    console.log("new ShopingCartItem", ShopingCartItem);
+     shopingCartDispatch(AddShopingCartItemAC(ShopingCartItem));
   };
   return (
     <div className={`${styles.btn_add_to_cart}`} onClick={handleClick}>

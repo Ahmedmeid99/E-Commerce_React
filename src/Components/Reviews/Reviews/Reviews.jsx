@@ -51,16 +51,21 @@ function Reviews({ productId }) {
         reviewId,
         updatedReview
       );
-      if (returnReview == null) {
-        // show alert to tell hem updated action has not been updated
+      if (!returnReview) {
+        // Show alert to indicate update failure
         return;
       }
-
-      setReviews([...reviews, returnReview]);
+  
+      setReviews((prevReviews) =>
+        prevReviews.map((review) =>
+          review.ReviewId === reviewId ? returnReview : review
+        )
+      );
     } catch (error) {
-      // throw error;
+      // Handle error
     }
   };
+  
 
   const handleDeleteReview = async (id) => {
     const DeletedReview = await deleteProductReview(Customer.CustomerId, id);

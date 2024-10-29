@@ -65,7 +65,9 @@ const shopingCartSlice = createSlice({
                     state.ShopingCartItems = [];
                 }
                 state.loading = false;
+                console.log("***from shopingCartSlice",action.payload);
                 state.ShopingCartItems.push(action.payload);
+                
             })
             .addCase(AddShopingCartItemAC.rejected, (state, action) => {
                 state.loading = false;
@@ -122,7 +124,7 @@ const shopingCartSlice = createSlice({
             .addCase(GetAllShopingCartItemsAC.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
-                state.ShopingCartItems = [];
+                // state.ShopingCartItems = [];
             });
     },
 });

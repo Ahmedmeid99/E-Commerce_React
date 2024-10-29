@@ -7,7 +7,7 @@ export const AddShopingCartItem = async (ShopingCartItem) => {
         return response.data;
     } catch (error) {
          
-        // throw error;
+        throw error;
     }
 }
 
@@ -17,7 +17,7 @@ export const IncreaseItemQuantity = async (shopingCartItemId) => {
         return response.data;
     } catch (error) {
          
-        // throw error;
+        throw error;
     }
 }
 
@@ -27,7 +27,7 @@ export const DecreaseItemQuantity = async (shopingCartItemId) => {
         return response.data;
     } catch (error) {
          
-        // throw error;
+        throw error;
     }
 }
 
@@ -37,7 +37,7 @@ export const GetAllShopingCartItems = async (shopingCartId) => {
         return response.data;
     } catch (error) {
          
-        // throw error;
+        throw error;
     }
 }
 
@@ -47,6 +47,6 @@ export const DeleteShopingCartItem = async (shopingCartItemId) => {
         return response.data;
     } catch (error) {
          
-        // throw error;
+        throw error;
     }
 }
