@@ -1,6 +1,4 @@
-/* display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-    gap:30px; */
+
 .category_img{
   width: 100%;
   height: 350px;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import styles from "./CategoryGroup.module.css";
 import { Link } from "react-router-dom";
 import Product from "../Product/Product";
@@ -7,12 +7,9 @@ import ProductPlaceholder from "../Placeholder/ProductPlaceholder/ProductPlaceho
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCartShopping,
-  faDollarSign,
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { GetTopCategoryProducts } from "../../Api/Product";
-import { GetCategories } from "../../Api/Category";
 
 function CategoryGroup({ category }) {
   const [products, setProducts] = useState([]);
@@ -38,11 +35,11 @@ function CategoryGroup({ category }) {
 
     let firstProduct = products?.length != 0 ? products[0] : {};
   const backgroundImgStyle = {
-    backgroundImage: `linear-gradient(45deg, rgb(151 0 255 / 71%), rgb(230 0 255 / 61%)),url(${firstProduct?.ImageUrl})`,
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-  };
+    backgroundImage: `linear-gradient(133deg, rgb(22 64 129), rgb(30 55 111 / 16%)),url(${firstProduct?.ImageUrl})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  }
   
     setStyleObj(backgroundImgStyle);
   ()=>{

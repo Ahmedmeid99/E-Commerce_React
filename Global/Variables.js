@@ -1,0 +1,1 @@
+export const LOCALSTORAGE_APP_Name = "FriendBookUsreInfo";

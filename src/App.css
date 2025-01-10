@@ -1,10 +1,10 @@
-@import "@fontsource/roboto";
+@import '@fontsource/roboto';
 
 :root {
-  --MainColor: hsl(275.52deg 100% 56.27%);
-  --SecondColor: hsl(298.64deg 100% 65.29%);
+  --MainColor: #0f397a;
+  --SecondColor: #136ffe;
   --grey: #cfcfcf;
-  --dark_grey: #767676;
+  --dark_grey: #a1a1a1;
 
   --screen_sm: 576px;
   --screen_md: 768px;
@@ -20,7 +20,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif !important;
+  font-family: 'Roboto', sans-serif !important;
   line-height: 1.1;
   font-weight: 400;
 }
@@ -34,7 +34,7 @@ ul {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .loading_component {
@@ -91,12 +91,12 @@ a {
 .list-group-item a:hover {
   background: #eee !important;
   transition: 0.5s !important;
-} 
+}
 /* a.active svg{
   color: var(--MainColor);
 } */
 .empty_content h3 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: #d7d7d7;
   text-align: center;
@@ -105,7 +105,7 @@ a {
 .empty_content svg {
   margin: auto;
   display: block;
-  font-size: 30px;
+  font-size: 40px;
   color: #d7d7d7;
 }
 .empty_content p {
@@ -115,8 +115,8 @@ a {
 }
 
 /* ---------------------- */
-.not_completed{
+.not_completed {
   color: #ddd;
-    text-align: center;
-    padding: 60px;
+  text-align: center;
+  padding: 60px;
 }
